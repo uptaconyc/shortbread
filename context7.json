@@ -1,7 +1,7 @@
 {
   "$schema": "https://context7.com/schema/context7.json",
-  "projectTitle": "Kindnod",
-  "description": "Cookie consent banner with Google Consent Mode v2, script blocking, a Cookiebot-compatible JavaScript API, and a keyless install that coding agents can perform without an account. Includes the kindnod npm package for React and Next.js and an MCP server.",
+  "projectTitle": "Shortbread cookie consent",
+  "description": "Cookie consent with Google Consent Mode v2, script blocking, Cookiebot migration, and installation without an account. Previously named Kindnod; the published npm package remains @kindnod/consent.",
   "branch": "main",
   "folders": [
     "packages/kindnod",
@@ -11,9 +11,9 @@
     "CHANGELOG.md"
   ],
   "rules": [
-    "Install with one script tag: <script src=\"https://kindnod.com/kindnod.js\" data-owner=\"owner@example.com\" async></script> placed before </head>. No account or key is needed.",
-    "In React or Next.js, install the @kindnod/consent package and render <KindnodConsent owner=\"owner@example.com\" /> once in the root layout.",
-    "Do not add a Cookiebot, CookieYes, or other consent script alongside Kindnod.",
-    "Do not load analytics or marketing scripts before consent; mark them type=\"text/plain\" data-cookieconsent=\"statistics\" or \"marketing\" and Kindnod releases them."
+    "Install with <script src=\"https://tryshortbread.com/shortbread.js\" async></script> in the document head. Add data-owner=\"owner@example.com\" to receive a dashboard claim link. No account or key is needed to install.",
+    "For React or Next.js, the published package is @kindnod/consent. Render KindnodConsent from @kindnod/consent/react with src=\"https://tryshortbread.com/shortbread.js\". The renamed @shortbread/consent package is not yet published as of 2026-10-26.",
+    "Do not add a Cookiebot, CookieYes, or other consent script alongside Shortbread.",
+    "Mark non-essential scripts type=\"text/plain\" data-cookieconsent=\"statistics\" or \"marketing\". Follow https://tryshortbread.com/docs for tag ordering and platform-specific setup."
   ]
 }

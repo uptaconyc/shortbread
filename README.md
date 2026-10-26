@@ -1,28 +1,75 @@
-# Kindnod
+# Shortbread cookie consent
 
-The cookie consent banner that doesn't charge per page. This repo holds the parts of Kindnod that run on other people's sites or inside their tools, all MIT:
-
-- `banner/kindnod.ts`: the consent banner itself. Google Consent Mode v2 defaults before any tag fires, script blocking, a Cookiebot-compatible JavaScript API and dataLayer events, Global Privacy Control, shadow DOM styling, consent carry-over from Cookiebot. Builds to a 17 KB IIFE with `npm run build`.
-- `packages/kindnod`: the `@kindnod/consent` npm package. A React or Next.js component and a plain-JS loader for the keyless install.
-- `agents/`: the skill, agent instructions, and Cursor rule that let a coding agent install Kindnod on a site with no human signing up first.
-- `server.json`: the MCP registry listing for the hosted MCP server at `https://kindnod.com/api/mcp`.
-
-The hosted parts (scanner, consent log, dashboard, geo-targeting, billing) live at [kindnod.com](https://kindnod.com) and are not in this repo.
-
-## Install on a site
+Install Shortbread with one script tag:
 
 ```html
-<script src="https://kindnod.com/kindnod.js" data-owner="you@example.com" async></script>
+<script src="https://tryshortbread.com/shortbread.js" async></script>
 ```
 
-No account is needed. The site is created on first load and the owner claims the dashboard from the email sent to `data-owner`. Docs: [kindnod.com/docs](https://kindnod.com/docs). For agents: [kindnod.com/llms.txt](https://kindnod.com/llms.txt).
+Shortbread was previously named Kindnod. This repository retains its original URL and package names so existing installations keep working. The hosted dashboard and documentation are at [tryshortbread.com](https://tryshortbread.com).
 
-## Build the banner
+## Install and claim your dashboard
+
+To receive a dashboard claim link, add your email address:
+
+```html
+<script src="https://tryshortbread.com/shortbread.js" data-owner="you@example.com" async></script>
+```
+
+On a public domain, the first configuration request creates a site. You can claim it afterward. Local development hosts receive a preview without creating a site.
+
+To block a non-essential script until consent, mark its category:
+
+```html
+<script type="text/plain" data-cookieconsent="statistics">
+  // Add your analytics initialization here.
+</script>
+```
+
+The banner supports Google Consent Mode v2, category-based script blocking, Global Privacy Control, and Cookiebot consent carry-over. Configuration and installation order matter. Follow the [installation guides](https://tryshortbread.com/docs) for your platform.
+
+## React and Next.js
+
+The published package retains the name `@kindnod/consent`:
+
+```bash
+npm install @kindnod/consent
+```
+
+```jsx
+import { KindnodConsent } from '@kindnod/consent/react';
+
+export function Consent() {
+  return <KindnodConsent src="https://tryshortbread.com/shortbread.js" />;
+}
+```
+
+The package exports retain their Kindnod names. Use the script tag above if you prefer an installation without a package dependency. The `@shortbread/consent` package is not available on npm as of 2026-10-26.
+
+## Coding agents
+
+Use the [agent installation guide](https://tryshortbread.com/docs/agents) and [machine-readable documentation](https://tryshortbread.com/llms.txt). The hosted MCP endpoint is:
+
+```text
+https://tryshortbread.com/api/mcp
+```
+
+You can install the banner before creating an account. Do not install another consent banner alongside it.
+
+## Repository contents
+
+- The `banner/kindnod.ts` file contains the browser banner source under its original name.
+- The `packages/kindnod` directory contains the published package's loader, React component, and types.
+- The `agents` directory contains installation instructions for coding tools.
+
+To build the banner source in this repository, run:
 
 ```bash
 npm install
-npm run build   # writes dist/kindnod.js
+npm run build
 ```
+
+The hosted application has a separate source repository. This repository does not contain the dashboard, billing system, or consent database.
 
 ## License
 

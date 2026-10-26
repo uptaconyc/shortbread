@@ -2,7 +2,7 @@
   "mcpServers": {
     "kindnod": {
       "type": "http",
-      "url": "https://kindnod.com/api/mcp"
+      "url": "https://tryshortbread.com/api/mcp"
     }
   }
 }
