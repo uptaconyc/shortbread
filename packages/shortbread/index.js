@@ -1,3 +1,4 @@
+import { initializeConsentDefaults } from "./defaults.js";
 // shortbread: loads the Shortbread banner script once. Works with no options at all.
 //   import { loadShortbread } from "@shortbread/consent";
 //   loadShortbread();                              // keyless: the site is provisioned on first load
@@ -8,6 +9,7 @@ let pending = null;
 
 export function loadShortbread(opts = {}) {
   if (typeof window === "undefined") return Promise.resolve(null);
+  initializeConsentDefaults();
   if (window.Shortbread) return Promise.resolve(window.Shortbread);
   if (pending) return pending;
   const src = opts.src || DEFAULT_SRC;

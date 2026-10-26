@@ -11,10 +11,16 @@ npm install @shortbread/consent
 ```tsx
 // app/layout.tsx
 import { ShortbreadConsent } from "@shortbread/consent/react";
+import { consentDefaultsScript } from "@shortbread/consent/defaults";
 
 export default function RootLayout({ children }) {
   return (
-    <html><body>
+    <html>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: consentDefaultsScript }} />
+        {/* Put Google tags or GTM after consent initialization. */}
+      </head>
+      <body>
       <ShortbreadConsent owner="you@example.com" />
       {children}
     </body></html>
@@ -22,7 +28,9 @@ export default function RootLayout({ children }) {
 }
 ```
 
-Gate anything that sets cookies:
+The head script must execute before Google tags or GTM. A React effect runs too late for tags already in the head. Apply your CSP nonce when required. The loader sets defaults when called, but cannot protect tags that ran earlier.
+
+Gate non-essential scripts and configure tag-manager consent checks:
 
 ```tsx
 import { Gated, useConsent } from "@shortbread/consent/react";

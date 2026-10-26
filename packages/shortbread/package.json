@@ -18,6 +18,10 @@
     "./next": {
       "types": "./react.d.ts",
       "default": "./react.js"
+    },
+    "./defaults": {
+      "types": "./defaults.d.ts",
+      "default": "./defaults.js"
     }
   },
   "files": [
@@ -27,7 +31,9 @@
     "react.d.ts",
     "README.md",
     "LICENSE",
-    "skills"
+    "skills",
+    "defaults.js",
+    "defaults.d.ts"
   ],
   "sideEffects": false,
   "peerDependencies": {

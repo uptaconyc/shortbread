@@ -11,9 +11,10 @@
     "CHANGELOG.md"
   ],
   "rules": [
-    "Install with <script src=\"https://tryshortbread.com/shortbread.js\" async></script> in the document head. Add data-owner=\"owner@example.com\" to receive a dashboard claim link. No account or key is needed to install.",
+    "Use the complete inline consent initialization and async banner snippet in README.md before Google tags or GTM. A standalone async script tag cannot guarantee consent initialization order. No account or key is needed to install.",
     "For React or Next.js, the published package is @kindnod/consent. Render KindnodConsent from @kindnod/consent/react with src=\"https://tryshortbread.com/shortbread.js\". The renamed @shortbread/consent package is not yet published as of 2026-10-26.",
     "Do not add a Cookiebot, CookieYes, or other consent script alongside Shortbread.",
-    "Mark non-essential scripts type=\"text/plain\" data-cookieconsent=\"statistics\" or \"marketing\". Follow https://tryshortbread.com/docs for tag ordering and platform-specific setup."
+    "Mark non-essential scripts type=\"text/plain\" data-cookieconsent=\"statistics\" or \"marketing\". Follow https://tryshortbread.com/docs for tag ordering and platform-specific setup.",
+    "For React, include the same inline initialization in the server-rendered head. Configure GTM consent checks and triggers; Consent Mode does not block every tracker automatically."
   ]
 }

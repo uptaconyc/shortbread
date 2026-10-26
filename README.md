@@ -1,8 +1,18 @@
 # Shortbread cookie consent
 
-Install Shortbread with one script tag:
+Place the complete snippet before Google tags or GTM in the document head:
 
 ```html
+<script>
+if (!window.__shortbreadDefaultsSet) {
+  window.dataLayer = window.dataLayer || [];
+  if (typeof window.gtag !== "function") {
+    window.gtag = function () { window.dataLayer.push(arguments); };
+  }
+  window.gtag("consent", "default", {"ad_storage":"denied","ad_user_data":"denied","ad_personalization":"denied","analytics_storage":"denied","functionality_storage":"denied","personalization_storage":"denied","security_storage":"granted","wait_for_update":500});
+  window.__shortbreadDefaultsSet = true;
+}
+</script>
 <script src="https://tryshortbread.com/shortbread.js" async></script>
 ```
 
@@ -13,6 +23,16 @@ Shortbread was previously named Kindnod. The old repository URL redirects here. 
 To receive a dashboard claim link, add your email address:
 
 ```html
+<script>
+if (!window.__shortbreadDefaultsSet) {
+  window.dataLayer = window.dataLayer || [];
+  if (typeof window.gtag !== "function") {
+    window.gtag = function () { window.dataLayer.push(arguments); };
+  }
+  window.gtag("consent", "default", {"ad_storage":"denied","ad_user_data":"denied","ad_personalization":"denied","analytics_storage":"denied","functionality_storage":"denied","personalization_storage":"denied","security_storage":"granted","wait_for_update":500});
+  window.__shortbreadDefaultsSet = true;
+}
+</script>
 <script src="https://tryshortbread.com/shortbread.js" data-owner="you@example.com" async></script>
 ```
 
@@ -44,7 +64,7 @@ export function Consent() {
 }
 ```
 
-The package exports retain their Kindnod names. Use the script tag above if you prefer an installation without a package dependency. The renamed `@shortbread/consent` package is prepared in `packages/shortbread` and awaits publication. Until it is published, use the script tag or the legacy package above.
+Include the inline head initialization above when using React too. A React effect runs after head scripts. The package exports retain their Kindnod names. Use the script tag above if you prefer an installation without a package dependency. The renamed `@shortbread/consent` package is prepared in `packages/shortbread` and awaits publication. Until it is published, use the script tag or the legacy package above.
 
 ## Coding agents
 
