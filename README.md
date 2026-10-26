@@ -6,7 +6,7 @@ Install Shortbread with one script tag:
 <script src="https://tryshortbread.com/shortbread.js" async></script>
 ```
 
-Shortbread was previously named Kindnod. This repository retains its original URL and package names so existing installations keep working. The hosted dashboard and documentation are at [tryshortbread.com](https://tryshortbread.com).
+Shortbread was previously named Kindnod. The old repository URL redirects here. The legacy package remains available so existing installations keep working. The hosted dashboard and documentation are at [tryshortbread.com](https://tryshortbread.com).
 
 ## Install and claim your dashboard
 
@@ -44,7 +44,7 @@ export function Consent() {
 }
 ```
 
-The package exports retain their Kindnod names. Use the script tag above if you prefer an installation without a package dependency. The `@shortbread/consent` package is not available on npm as of 2026-10-26.
+The package exports retain their Kindnod names. Use the script tag above if you prefer an installation without a package dependency. The renamed `@shortbread/consent` package is prepared in `packages/shortbread` and awaits publication. Until it is published, use the script tag or the legacy package above.
 
 ## Coding agents
 
